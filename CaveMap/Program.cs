@@ -13,9 +13,7 @@ namespace CaveMap
 
             CaveMap caveMap = new CaveMap();
 
-            caveMap.Fill(60); //60% chance to be wall
-
-            //caveMap.Filter();
+            caveMap.Fill(45); // % chance to be wall
 
             caveMap.Display();
 

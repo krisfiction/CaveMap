@@ -5,7 +5,7 @@ namespace CaveMap
     internal class CaveMap
     {
         private readonly string WallIcon = "#";
-        private readonly string FloorIcon = "·"; //ascii #183 middle dot
+        private readonly string FloorIcon = "·"; //middle dot
 
         private const int MapSizeX = 110;
         private const int MapSizeY = 35;
@@ -41,20 +41,17 @@ namespace CaveMap
             {
                 for (int y = 1; y <= MapSizeY - 2; y++) //skip outer wall
                 {
-                    //Tile CurrentTile = (Tile)GameMap[x, y];
                     Tile TempTile = (Tile)TempMap[x, y];
 
                     int WallCount = GetWallCount(x, y);
 
                     if (WallCount >= 5)
                     {
-                        //GameMap[x, y] = new Tile(x, y, WallIcon, false, false, true);
                         TempTile.Icon = WallIcon;
                         TempTile.IsWall = true;
                     }
-                    else
+                    else if (WallCount <= 3)
                     {
-                        //GameMap[x, y] = new Tile(x, y, FloorIcon, false, false, false);
                         TempTile.Icon = FloorIcon;
                         TempTile.IsWall = false;
                     }
