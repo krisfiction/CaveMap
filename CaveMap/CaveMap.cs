@@ -22,14 +22,14 @@ namespace CaveMap
             {
                 for (int y = 0; y <= MapSizeY - 1; y++)
                 {
-                    TempMap[x, y] = new Tile(x, y, WallIcon, false, false, true);
+                    TempMap[x, y] = new Tile(x, y, WallIcon, false, false, true); //fill TempMap with all walls
 
-                    if (random.Next(1, 101) < _wallChance)
-                        GameMap[x, y] = new Tile(x, y, WallIcon, false, false, true);
+                    if (random.Next(1, 101) <= _wallChance)
+                        GameMap[x, y] = new Tile(x, y, WallIcon, false, false, true); //set tile to wall
                     else
-                        GameMap[x, y] = new Tile(x, y, FloorIcon, false, false, false);
+                        GameMap[x, y] = new Tile(x, y, FloorIcon, false, false, false); //set tile to floor
 
-                    if (x == 0 || y == 0 || x == MapSizeX - 1 || y == MapSizeY - 1) // create a border
+                    if (x == 0 || y == 0 || x == MapSizeX - 1 || y == MapSizeY - 1) // create a border of all walls
                         GameMap[x, y] = new Tile(x, y, WallIcon, false, false, true);
                 }
             }
@@ -45,19 +45,19 @@ namespace CaveMap
 
                     int WallCount = GetWallCount(x, y);
 
-                    if (WallCount >= 5)
+                    if (WallCount >= 5) //set as wall
                     {
                         TempTile.Icon = WallIcon;
                         TempTile.IsWall = true;
                     }
-                    else if (WallCount <= 3)
+                    else if (WallCount <= 3) //set as floor
                     {
                         TempTile.Icon = FloorIcon;
                         TempTile.IsWall = false;
                     }
                 }
             }
-            TempMapToGameMap();
+            CopyMap(TempMap, GameMap);
         }
 
         public int GetWallCount(int LOCx, int LOCy)
@@ -78,13 +78,13 @@ namespace CaveMap
             return _wallCount;
         }
 
-        public void TempMapToGameMap()
+        public void CopyMap(Tile[,] oldMap, Tile[,] newMap)
         {
             for (int x = 0; x <= MapSizeX - 1; x++)
             {
                 for (int y = 0; y <= MapSizeY - 1; y++)
                 {
-                    GameMap[x, y] = (Tile)TempMap[x, y];
+                    newMap[x, y] = oldMap[x, y];
                 }
             }
         }
