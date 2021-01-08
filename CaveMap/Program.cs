@@ -13,7 +13,7 @@ namespace CaveMap
 
             CaveMap caveMap = new CaveMap();
 
-            caveMap.Fill(45); // % chance to be wall
+            caveMap.Fill(40); // % chance to be wall
 
             caveMap.Display();
 
@@ -23,15 +23,15 @@ namespace CaveMap
                 ConsoleKey aInput = Console.ReadKey().Key;
                 if (aInput == ConsoleKey.F5) //reload for testing
                 {
-                    Main();
+                    caveMap.Fill(40); // % chance to be wall
                 }
 
                 if (aInput == ConsoleKey.Spacebar) // key to step through map creation
                 {
-                    caveMap.Filter();
-
-                    caveMap.Display();
+                    caveMap.Filter(); // 2 steps at 40% fill seems to look good
                 }
+
+                caveMap.Display();
             } while (_keepPlaying);
         }
     }
