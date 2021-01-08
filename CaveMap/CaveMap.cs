@@ -16,16 +16,6 @@ namespace CaveMap
 
         private readonly Random random = new Random();
 
-        //todo display()
-        //todo generate()
-
-        /*
-         * init full blank map
-         * fill with random walls
-         * run through 4/5 algorithm
-         *
-         */
-
         public void Fill(int _wallChance) //? rename to Initialize() or Init()
         {
             for (int x = 0; x <= MapSizeX - 1; x++)
@@ -47,14 +37,6 @@ namespace CaveMap
 
         public void Filter()
         {
-            /* https://en.wikipedia.org/wiki/Cellular_automaton
-             *
-             * get x,y location
-             * check all 8 squares around x,y location
-             */
-            
-            Console.SetCursorPosition(0, 35);
-
             for (int x = 1; x <= MapSizeX - 2; x++) //skip outer wall
             {
                 for (int y = 1; y <= MapSizeY - 2; y++) //skip outer wall
@@ -63,8 +45,6 @@ namespace CaveMap
                     Tile TempTile = (Tile)TempMap[x, y];
 
                     int WallCount = GetWallCount(x, y);
-
-                    Console.Write(WallCount);
 
                     if (WallCount >= 5)
                     {
@@ -82,7 +62,6 @@ namespace CaveMap
             }
             TempMapToGameMap();
         }
-
 
         public int GetWallCount(int LOCx, int LOCy)
         {
@@ -102,7 +81,6 @@ namespace CaveMap
             return _wallCount;
         }
 
-
         public void TempMapToGameMap()
         {
             for (int x = 0; x <= MapSizeX - 1; x++)
@@ -113,8 +91,6 @@ namespace CaveMap
                 }
             }
         }
-
-
 
         public void Display()
         {
