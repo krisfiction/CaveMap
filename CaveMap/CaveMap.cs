@@ -95,11 +95,11 @@ namespace CaveMap
             {
                 for (int y = 0; y <= MapSizeY - 1; y++)
                 {
-                    Tile _currentTile = (Tile)GameMap[x, y];
+                    Tile tile = GameMap[x, y];
 
                     Console.SetCursorPosition(x, y);
 
-                    Console.WriteLine(_currentTile.Icon);
+                    Console.Write(tile.Icon);
                 }
             }
         }
