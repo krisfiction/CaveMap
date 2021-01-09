@@ -8,7 +8,7 @@ making a cave map useing cellular automaton.
 2b. if 3 or less tiles around a tile are walls then that tile will become a floor
 2c. if 4 tiles around a tile are walls then the tile remains unchanged
 
-![map1](/ReamMe/map1.png)
-![map2](/ReamMe/map2.png)
-![map3](/ReamMe/map3.png)
-![map4](/ReamMe/map4.png)
+![map1](/ReadMe/map1.png)
+![map2](/Readme/map2.png)
+![map3](/ReadMe/map3.png)
+![map4](/ReadMe/map4.png)
