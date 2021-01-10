@@ -12,7 +12,15 @@ making a cave map useing cellular automaton.
 * f5 = create new map
 * spacebar = run filter
 
+# ToDo
+* connect all void spaces
+
+# Pictures
+Initialize Map
 ![map1](/ReadMe/map1.png)
+Pass 1
 ![map2](/ReadMe/map2.png)
+Pass 2
 ![map3](/ReadMe/map3.png)
+Pass 10
 ![map4](/ReadMe/map4.png)
