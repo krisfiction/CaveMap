@@ -18,7 +18,7 @@ namespace CaveMap
             caveMap.Display();
 
             int passes = 0;
-            Console.WriteLine($"\n\nFilter Pass: {passes}.");
+            Console.WriteLine($"\n\nFilter Pass: {passes}.  ");
             Console.WriteLine("\n[SPACE BAR] to run filter, [F5] to create new map");
             Console.WriteLine("\nPass 0 = initialize map, Pass 2 looks the best to me, More passes will smooth the walls out.");
 
@@ -39,7 +39,7 @@ namespace CaveMap
                 }
 
                 caveMap.Display();
-                Console.WriteLine($"\n\nFilter Pass: {passes}.");
+                Console.WriteLine($"\n\nFilter Pass: {passes}.  ");
                 Console.WriteLine("\n[SPACE BAR] to run filter, [F5] to create new map");
                 Console.WriteLine("\nPass 0 = initialize map, Pass 2 looks the best to me, More passes will smooth the walls out.");
             } while (_keepPlaying);
