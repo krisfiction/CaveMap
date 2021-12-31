@@ -2,21 +2,21 @@
 
 namespace CaveMap
 {
-    internal static class CaveMap
+    internal class CaveMap
     {
-        private static readonly string WallIcon = "#";
-        private static readonly string FloorIcon = "·"; //middle dot
+        private readonly string WallIcon = "#";
+        private readonly string FloorIcon = "·"; //middle dot
 
         private const int MapSizeX = 110;
         private const int MapSizeY = 35;
 
-        private static readonly Tile[,] GameMap = new Tile[MapSizeX, MapSizeY];
+        private readonly Tile[,] GameMap = new Tile[MapSizeX, MapSizeY];
 
-        private static readonly Tile[,] TempMap = new Tile[MapSizeX, MapSizeY];
+        private readonly Tile[,] TempMap = new Tile[MapSizeX, MapSizeY];
 
-        private static readonly Random random = new Random();
+        private readonly Random random = new Random();
 
-        public static void Fill(int _wallChance) //? rename to Initialize() or Init()
+        public void Fill(int _wallChance) //? rename to Initialize() or Init()
         {
             for (int x = 0; x <= MapSizeX - 1; x++)
             {
@@ -35,7 +35,7 @@ namespace CaveMap
             }
         }
 
-        public static void Filter()
+        public void Filter()
         {
             for (int x = 1; x <= MapSizeX - 2; x++) //skip outer wall
             {
@@ -60,7 +60,7 @@ namespace CaveMap
             CopyMap(TempMap, GameMap);
         }
 
-        public static int GetWallCount(int LOCx, int LOCy)
+        public int GetWallCount(int LOCx, int LOCy)
         {
             int _wallCount = 0;
 
@@ -78,7 +78,7 @@ namespace CaveMap
             return _wallCount;
         }
 
-        public static void CopyMap(Tile[,] oldMap, Tile[,] newMap)
+        public void CopyMap(Tile[,] oldMap, Tile[,] newMap)
         {
             for (int x = 0; x <= MapSizeX - 1; x++)
             {
@@ -89,7 +89,7 @@ namespace CaveMap
             }
         }
 
-        public static void Display()
+        public void Display()
         {
             for (int x = 0; x <= MapSizeX - 1; x++)
             {
