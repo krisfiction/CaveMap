@@ -1,4 +1,12 @@
-﻿using System;
+﻿/* purpose of this fork:
+ * add comments
+ * 
+ * add commets that explain what the code is doing (be able to understand what is happening without the code being looked at)
+ * add Intellisence comments '///' to allow tip on methods
+ * 
+ */
+
+using System;
 
 namespace CaveMap
 {

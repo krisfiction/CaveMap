@@ -60,22 +60,28 @@ namespace CaveMap
             CopyMap(TempMap, GameMap);
         }
 
+        /// <summary>
+        /// gets the number of walls surrounding a tile
+        /// </summary>
+        /// <param name="LOCx">x coordinate of the tile being checked</param>
+        /// <param name="LOCy">y coordinate of the tile being checked</param>
+        /// <returns>wall count</returns>
         public int GetWallCount(int LOCx, int LOCy)
         {
-            int _wallCount = 0;
+            int _wallCount = 0; //set count to 0 for fresh count
 
-            for (int x = (LOCx - 1); x <= (LOCx + 1); x++)
+            for (int x = (LOCx - 1); x <= (LOCx + 1); x++) //cycle across the X axis
             {
-                for (int y = (LOCy - 1); y <= (LOCy + 1); y++)
+                for (int y = (LOCy - 1); y <= (LOCy + 1); y++) //cycle across the Y axis
                 {
-                    if (!(x == LOCx && y == LOCy)) //dont count itself
+                    if (!(x == LOCx && y == LOCy)) //skip the tile being checked - aka dont count itself
                     {
-                        if (GameMap[x, y].IsWall)
-                            _wallCount++;
+                        if (GameMap[x, y].IsWall) //if tile is a wall
+                            _wallCount++; //add 1 to count
                     }
                 }
             }
-            return _wallCount;
+            return _wallCount; //return count
         }
 
         public void CopyMap(Tile[,] oldMap, Tile[,] newMap)
